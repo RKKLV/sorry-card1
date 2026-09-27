@@ -1,14 +1,12 @@
 :root {
-  --bg-color: #e0aaff;
-  --bg-pattern: #c77dff;
-  --main-purple: #9d4edd;
-  --dark-purple: #3c096c;
-  --border-color: #240046;
-  --text-color: #240046;
-  --yes-color: #7b2cbf;
-  --yes-text: #ffffff;
-  --pink-accent: #ff85a1;
+  --bg-color: #e8f5e9;             /* خلفية أخضر نعناعي فاتح جداً */
+  --main-pink: #a3b18a;            /* أخضر ماتشا دافئ */
+  --dark-pink: #ff758f;            /* وردي فراولة */
+  --border-color: #3a5a40;         /* أخضر غامق للحدود */
+  --text-color: #344e41;           /* زيتوني داكن للنصوص */
+  --yes-color: #ffb3c1;            /* وردي ناعم للأزرار */
 }
+
 
 * {
   box-sizing: border-box;
