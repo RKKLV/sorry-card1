@@ -36,7 +36,6 @@ body {
   padding: 15px;
 }
 
-/* تساقط القلوب */
 .hearts-container {
   position: fixed;
   inset: 0;
@@ -54,7 +53,6 @@ body {
   100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
 }
 
-/* الكروت والتغليف العام */
 .stage-one {
   z-index: 10;
   text-align: center;
@@ -95,7 +93,6 @@ body {
   text-align: center;
 }
 
-/* شريط التقدّم (Progress Bar) */
 .loading-sub {
   font-size: 14px;
   color: var(--dark-pink);
@@ -119,7 +116,6 @@ body {
   transition: width 0.05s linear;
 }
 
-/* تنسيق شاشة التشخيص والعلاج */
 .diagnosis-wrapper {
   align-items: flex-start;
   text-align: right;
@@ -166,7 +162,6 @@ body {
   line-height: 1.7;
 }
 
-/* النافذة الكلاسيكية */
 .window {
   width: 360px;
   max-width: 92vw;
@@ -249,7 +244,6 @@ body {
   word-wrap: break-word;
 }
 
-/* الأزرار */
 .buttons-area {
   display: flex;
   justify-content: center;
@@ -290,7 +284,6 @@ body {
   color: #2b3a28;
 }
 
-/* أنيميشن */
 .pixel-fade-out { animation: retroPixelOut 0.45s steps(6) forwards; }
 .pixel-fade-in { animation: retroPixelIn 0.45s steps(6) forwards; }
 
