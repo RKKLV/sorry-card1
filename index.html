@@ -13,7 +13,7 @@
   <!-- تساقط القلوب والأشكال -->
   <div class="hearts-container" id="heartsContainer"></div>
 
-  <!-- 1. شاشة التحميل -->
+  <!-- 1. شاشة التحميل الأولى -->
   <div class="stage-one" id="loadingScreen">
     <div class="envelope-wrapper">
       <div class="envelope">
@@ -85,7 +85,7 @@
     <div class="window-body" id="windowBody">
       <!-- رسمة القطة البكسلية -->
       <div class="pixel-cat">
-        <svg width="80" height="80" viewBox="0 0 100 100">
+        <svg width="70" height="70" viewBox="0 0 100 100">
           <rect x="25" y="30" width="50" height="50" rx="10" fill="#1e1e24"/>
           <polygon points="25,35 15,15 35,25" fill="#1e1e24"/>
           <polygon points="75,35 85,15 65,25" fill="#1e1e24"/>
@@ -110,13 +110,12 @@
 
       <!-- منطقة الأزرار -->
       <div class="buttons-area hidden" id="buttonsArea">
-        <button id="yesBtn" class="btn yes-btn"></button>
-        <button id="noBtn" class="btn no-btn hidden">لا</button>
+        <button id="actionBtn" class="btn yes-btn"></button>
       </div>
     </div>
   </div>
 
-  <!-- 5. صفحة التشويق (قبل النهائية) -->
+  <!-- 5. صفحة التشويق -->
   <div class="stage-one hidden" id="teaserScreen">
     <div class="envelope-wrapper">
       <div class="envelope">
@@ -127,12 +126,24 @@
     </div>
   </div>
 
-  <!-- 6. شاشة النهاية -->
-  <div class="final-screen hidden" id="finalScreen">
-    <div class="final-card">
-      <div class="big-heart">💖</div>
-      <h1>يكفي إنك أنتي ♥️</h1>
-      <p>نامي مرتاحة وبدون أي تفكير...</p>
+  <!-- 6. شاشة تسجيل الخروج النهائية -->
+  <div class="stage-one hidden" id="logoutScreen">
+    <div class="envelope-wrapper">
+      <div class="envelope">
+        <span class="heart-seal">⌛</span>
+      </div>
+      <h2>جاري تسجيل الخروج...</h2>
+      <div class="progress-bar">
+        <div class="progress-fill" id="logoutProgressFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. شاشة النهاية الهادئة البسيطة -->
+  <div class="final-quiet-screen hidden" id="finalQuietScreen">
+    <div class="quiet-card">
+      <h1 class="quiet-title">جودي ♥️</h1>
+      <p class="quiet-sub">اقفلي الصفحة وخلي الابتسامة تكمل الباقي... ✨</p>
     </div>
   </div>
 
