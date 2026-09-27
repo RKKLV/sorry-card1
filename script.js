@@ -18,6 +18,9 @@ const buttonsArea = document.getElementById('buttonsArea');
 const yesBtn = document.getElementById('yesBtn');
 const noBtn = document.getElementById('noBtn');
 
+const teaserScreen = document.getElementById('teaserScreen');
+const teaserBtn = document.getElementById('teaserBtn');
+
 const finalScreen = document.getElementById('finalScreen');
 const heartsContainer = document.getElementById('heartsContainer');
 
@@ -44,7 +47,7 @@ function playSound(freq, type, duration) {
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 // ==========================================
-// 1. تشغيل العداد التلقائي (من 0% إلى 100%)
+// 1. تشغيل العداد التلقائي
 // ==========================================
 window.addEventListener('DOMContentLoaded', () => {
   let progress = 0;
@@ -62,11 +65,11 @@ window.addEventListener('DOMContentLoaded', () => {
         diagnosisScreen.classList.remove('hidden');
       }, 600);
     }
-  }, 35); // يتحرك العداد خلال 1.7 ثوانٍ تقريباً
+  }, 35);
 });
 
 // ==========================================
-// 2. عند ضغط زر "ابدأ العلاج 🫴🏻"
+// 2. الانتقال من شاشة التشخيص للرئيسية
 // ==========================================
 startTreatmentBtn.addEventListener('click', () => {
   playSound(523, 'triangle', 0.2);
@@ -86,14 +89,6 @@ async function typeWriter(text, speed = 50) {
     if (text.charAt(i) !== ' ' && text.charAt(i) !== '\n') {
       playSound(480, 'sine', 0.03);
     }
-    await sleep(speed);
-  }
-}
-
-async function backspaceText(speed = 65) {
-  while (storyText.textContent.length > 0) {
-    storyText.textContent = storyText.textContent.slice(0, -1);
-    playSound(320, 'square', 0.03);
     await sleep(speed);
   }
 }
@@ -120,7 +115,7 @@ async function showSegment(text, pauseTime = 3500) {
 }
 
 // ==========================================
-// 3. التفاعل وسلسلة الرسائل
+// 3. التفاعل وسلسلة الرسائل المُحدثة
 // ==========================================
 startStoryBtn.addEventListener('click', async () => {
   playSound(523, 'triangle', 0.3);
@@ -170,33 +165,47 @@ startStoryBtn.addEventListener('click', async () => {
   buttonsArea.appendChild(yesBtn);
   buttonsArea.classList.remove('hidden');
 
-  // عند ضغط الزر للجزء الثاني
+  // عند ضغط الزر للنص الجديد والتنقل
   yesBtn.onclick = async () => {
     playSound(659, 'sine', 0.2);
     buttonsArea.classList.add('hidden');
     await animateTextOut();
 
-    await showSegment("خليني أدلعك شوي\nترى لي من اليوم وأنا محروم منك ومن دلعك.", 3000);
+    // --- النص الجديد المحدث ---
+    await showSegment(
+      "مامي، تعرفين وش أكثر شي أحبه فيك؟\nمو شيء واحد\nالمشكلة إني كل ما حاولت أختار شي\nيطلع لي شيء ثاني ويقول\nوأنا؟\n\nفأكتشف إني ما أحب فيك تفصيله وبس\nأنا أحب الطريقة اللي تصيرين فيها أنتي بكل تفاصيلك",
+      4500
+    );
 
-    await showSegment("أحبك يا مامي\nأحبك بطريقة ما تعرف تختصر نفسها بجمله\nأحبك لين صار وجودك عندي شي يشبه الطمأنينه\nما أنتبه له كل لحظه\nلكن إذا غاب أعرف قد إيش كان يسندني\n\nوإذا كان بخاطرك باقي شيء\nتعالي قولي لي أنا أبي أعرف كل اللي بخاطرك،\nحتى الأشياء اللي تقولين عنها ما تسوى\n\nلأن اللي يخص قلبك\nيسوى عندي كثير", 4500);
+    await showSegment(
+      "أحبك وأنتي رايقه\nوأحبك وأنتي هلكانة وتبين تنامين\n\nأحب سوالفك اللي ما لها بداية ولا نهاية\nوأحب حتى صمتك اللي أحيانا أفهمه قبل لا تقولينه",
+      4500
+    );
 
-    await typeWriter("والحين كفاية تعب.");
-    await sleep(1200);
-    await backspaceText();
-    await sleep(400);
+    await showSegment(
+      "وأحب إنك جودي واحب انك مامتي الحمدلله يارب\n\nلأن ما فيه نسخة ثانية منك أقدر أحطها مكانك. ♥️",
+      4000
+    );
 
-    await typeWriter("تعالي يا مامي\nأبي أشوف ذيك الابتسامة اللي أحسها تخلّي الدنيا كلها تروق ♥️");
-    await sleep(3500);
-
+    // الانتقال لصفحة التشويق
     loveWindow.classList.add('pixel-fade-out');
     await sleep(500);
     loveWindow.classList.add('hidden');
 
-    if (finalScreen) {
-      finalScreen.classList.remove('hidden');
-    }
-    rainHearts();
+    teaserScreen.classList.remove('hidden');
   };
+});
+
+// ==========================================
+// 4. الضغط على زر "اضغطي✨" للانتقال للشاشة النهائية
+// ==========================================
+teaserBtn.addEventListener('click', () => {
+  playSound(523, 'triangle', 0.3);
+  teaserScreen.classList.add('hidden');
+  if (finalScreen) {
+    finalScreen.classList.remove('hidden');
+  }
+  rainHearts();
 });
 
 // ==========================================
