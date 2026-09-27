@@ -203,6 +203,20 @@ nextPhaseBtn.addEventListener('click', async () => {
 });
 
 // إدارة الأسئلة اللاحقة (حيث زر "إي" هو الصحيح وزر "لا" يهرب)
+// 1. الشاشة الأولى
+startStoryBtn.addEventListener('click', async () => {
+  playSound(523, 'triangle', 0.3);
+  stageOne.classList.add('hidden');
+  loveWindow.classList.remove('hidden');
+
+  // بداية الكلام فور الفتح
+  await typeWriter("صح النوم يا حلوتي 🛌🤍\n\nنوم العافية يا رب، أدري إنك جيتي من الدوام هلكانة وتعبانة وتستاهلين يرتاح خاطرك..");
+  await sleep(2500);
+
+  buttonsArea.classList.remove('hidden');
+});
+
+// 2. إدارة الأسئلة والكلام الداعم بعد الدوام
 function setupQuestionFlow() {
   let step = 1;
 
@@ -213,8 +227,7 @@ function setupQuestionFlow() {
     playSound(659, 'sine', 0.2);
     buttonsArea.classList.add('hidden');
     noBtn.style.position = 'static';
-    noBtn.onmouseenter = null;
-    noBtn.ontouchstart = null;
+    noBtn.classList.add('hidden');
 
     await animateTextOut();
     await catHappyAnimation();
@@ -222,41 +235,40 @@ function setupQuestionFlow() {
     if (step === 1) {
       step = 2;
       storyText.classList.remove('big-question');
-      await typeWriter("والله؟ 👀");
-      newYesBtn.textContent = "إيه والله";
-      setupDodge(noBtn);
+      await typeWriter("عساك ارتحتي بشويش بالنوم؟ 🥺");
+      newYesBtn.textContent = "إي الحمد لله 🤍";
+      
+      noBtn.textContent = "لسه تعبانة 🥺";
+      noBtn.classList.remove('hidden'); // زر يهرب لطيف
       buttonsArea.classList.remove('hidden');
     } else if (step === 2) {
       step = 3;
-      await typeWriter("والله والله؟");
-      newYesBtn.textContent = "إي والله والله";
-      setupDodge(noBtn);
+      await typeWriter("يعني الحين التعب خفّ ولا باقي الدوام يغث؟");
+      newYesBtn.textContent = "راخ التعب خلاص ♥️";
       buttonsArea.classList.remove('hidden');
     } else if (step === 3) {
       step = 4;
-      await typeWriter("يعني أنا للحين الشخص اللي إذا جاك اسمه يبتسم قلبك قبلك؟");
-      newYesBtn.textContent = "كل زق ايه ♥️";
-      setupDodge(noBtn);
+      await typeWriter("يا عمري أنتي..\nوالله لو التعب ينشال ويكبر ويصير إنسان، كان رحنا نتطاق معه عشان يخليك بسلامتك!");
+      newYesBtn.textContent = "ههههههههه ياعمري 🥹";
       buttonsArea.classList.remove('hidden');
     } else if (step === 4) {
+      // الرسالة الرئيسية الحنونة
       buttonsArea.classList.add('hidden');
       storyText.classList.remove('big-question');
       await animateTextOut();
 
-      await typeWriter("طيب… خلاص\nدامك قلتيها\nعندي آخر شيء أبي أقول لك");
-      await sleep(3000);
+      await typeWriter("جودي 🤍\n\nحبيت أترك لك هالصفحة الصغيره هنا، عشان أول ما تفتحي عينك وتشوفين جوالك، تلقين شي يبتسم له قلبك قبل عينك.\n\nأدري إن أوقات الدوام والتعب يهدّون الحيل، بس أبيك تتذكرين إن فيه أحد ينتظرك ترتاحين، ويحبك بأبسط تفاصيلك وأنتي تعبانة وأنتي رايقة.");
+      await sleep(5000);
       await animateTextOut();
 
-      await typeWriter("جودي\nثلاث شهور مرّت،\nوأنا كل يوم أكتشف إن كلمة أحبك\nصارت أصغر من اللي أحسّه لك\n\nما أبي أختم هالكرت بكلام كبير\nولا أبي أقول لك كلام ينتهي بانتهاء الصفحة\n\nأبي أخليه بشي واحد \nأنا للحين أبيك\nأبي ضحكتك\nأبي دلالك\nأبي صوتك\nأبي سوالفك اللي ما لها نهايه\nوحتى زعلك أبي أعرف كيف أراضيه\nوإذا مرّ علينا يوم ثقيل\nما أبي أول فكرة تجي ببالنا هي البعد\n\nأبيها تكون:\nطيب… كيف نرجع لبعض؟\n\nلأنك بالنسبة لي\nمو أجمل ثلاثة شهور عشتها وبس\nأنتِ الشيء اللي ودي أشوف وش يصير لو عطيناه عمر كامل.");
-      await sleep(6500);
+      await typeWriter("أنتي ألطف وأجمل شي يصير باليوم، وكل تعب تكابدينه ترى وراه قلب يدعي لك ويبيك دايماً بخير ومرتاحة.\n\nوالحين خلاص.. شبعتي نوم ولا نرجع ننام؟ 💆🏻‍♀️");
+      await sleep(4000);
       await animateTextOut();
 
-      await sleep(1500);
+      await typeWriter("الحمد لله على سلامتك من تعب الدوام يا حلوة ♥️");
+      await sleep(2000);
 
-      await typeWriter("ثلاث شهور راحت\nوالباقي أبيه معك");
-      await sleep(3000);
-
-      newYesBtn.textContent = "تعالي يا مامي ♥️";
+      newYesBtn.textContent = "تعال أدلعك 🫴🏻✨";
       newYesBtn.style.margin = "10px auto 0 auto";
       buttonsArea.innerHTML = '';
       buttonsArea.appendChild(newYesBtn);
@@ -276,6 +288,7 @@ function setupQuestionFlow() {
     }
   });
 }
+
 
 function rainHearts() {
   for (let i = 0; i < 50; i++) {
