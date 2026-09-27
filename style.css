@@ -165,7 +165,7 @@ body {
 .window {
   width: 360px;
   max-width: 92vw;
-  height: 520px;
+  height: 530px;
   max-height: 88vh;
   background: var(--card-bg);
   border: 4px solid var(--border-color);
@@ -218,7 +218,7 @@ body {
   justify-content: space-between;
 }
 
-.pixel-cat { flex-shrink: 0; margin-bottom: 10px; }
+.pixel-cat { flex-shrink: 0; margin-bottom: 8px; }
 
 .text-container {
   width: 100%;
@@ -236,7 +236,7 @@ body {
 .text-container::-webkit-scrollbar-thumb { background: var(--matcha-green); border-radius: 4px; }
 
 .typewriter-text {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--text-color);
   line-height: 1.8;
   text-align: center;
@@ -247,7 +247,6 @@ body {
 .buttons-area {
   display: flex;
   justify-content: center;
-  gap: 12px;
   width: 100%;
   margin-top: auto;
   flex-shrink: 0;
@@ -282,6 +281,10 @@ body {
 .yes-btn {
   background-color: #ccd5ae;
   color: #2b3a28;
+  width: 100%;
+  font-size: 14px;
+  padding: 12px 10px;
+  line-height: 1.5;
 }
 
 .pixel-fade-out { animation: retroPixelOut 0.45s steps(6) forwards; }
@@ -299,24 +302,35 @@ body {
   100% { opacity: 1; transform: scale(1); clip-path: inset(0 0 0 0); }
 }
 
-.final-screen {
+/* الشاشة الهادئة النهائية */
+.final-quiet-screen {
   z-index: 20;
   text-align: center;
-  animation: popIn 0.5s ease;
-  max-width: 90%;
+  animation: fadeInQuiet 1.2s ease forwards;
 }
 
-.final-card {
-  background: #ffffff;
-  padding: 40px 25px;
-  border: 5px solid var(--border-color);
-  border-radius: 20px;
-  box-shadow: 8px 8px 0px var(--border-color);
+.quiet-card {
+  padding: 40px 20px;
+  text-align: center;
 }
 
-.big-heart { font-size: 45px; margin-bottom: 12px; }
-.final-card h1 { font-size: 22px; color: var(--dark-pink); margin-bottom: 8px; }
-.final-card p { font-size: 15px; color: var(--text-color); }
+.quiet-title {
+  font-size: 32px;
+  color: var(--dark-pink);
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.quiet-sub {
+  font-size: 16px;
+  color: var(--text-color);
+  opacity: 0.85;
+}
+
+@keyframes fadeInQuiet {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
 
 @keyframes popIn {
   0% { transform: scale(0.6); opacity: 0; }
