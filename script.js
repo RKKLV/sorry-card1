@@ -1,14 +1,23 @@
 // ==========================================
 // العناصر الأساسية
 // ==========================================
+const loadingScreen = document.getElementById('loadingScreen');
+const progressText = document.getElementById('progressText');
+const progressFill = document.getElementById('progressFill');
+
+const diagnosisScreen = document.getElementById('diagnosisScreen');
+const startTreatmentBtn = document.getElementById('startTreatmentBtn');
+
 const stageOne = document.getElementById('stageOne');
 const startStoryBtn = document.getElementById('startStoryBtn');
+
 const loveWindow = document.getElementById('loveWindow');
 const storyText = document.getElementById('storyText');
 const textContainer = document.getElementById('textContainer');
 const buttonsArea = document.getElementById('buttonsArea');
 const yesBtn = document.getElementById('yesBtn');
 const noBtn = document.getElementById('noBtn');
+
 const finalScreen = document.getElementById('finalScreen');
 const heartsContainer = document.getElementById('heartsContainer');
 
@@ -33,6 +42,37 @@ function playSound(freq, type, duration) {
 }
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+// ==========================================
+// 1. تشغيل العداد التلقائي (من 0% إلى 100%)
+// ==========================================
+window.addEventListener('DOMContentLoaded', () => {
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += 2;
+    if (progress > 100) progress = 100;
+
+    progressText.textContent = `${progress}%`;
+    progressFill.style.width = `${progress}%`;
+
+    if (progress === 100) {
+      clearInterval(interval);
+      setTimeout(() => {
+        loadingScreen.classList.add('hidden');
+        diagnosisScreen.classList.remove('hidden');
+      }, 600);
+    }
+  }, 35); // يتحرك العداد خلال 1.7 ثوانٍ تقريباً
+});
+
+// ==========================================
+// 2. عند ضغط زر "ابدأ العلاج 🫴🏻"
+// ==========================================
+startTreatmentBtn.addEventListener('click', () => {
+  playSound(523, 'triangle', 0.2);
+  diagnosisScreen.classList.add('hidden');
+  stageOne.classList.remove('hidden');
+});
 
 // ==========================================
 // دوال الكتابة والمسح
@@ -80,7 +120,7 @@ async function showSegment(text, pauseTime = 3500) {
 }
 
 // ==========================================
-// التفاعل وسلسلة الرسائل
+// 3. التفاعل وسلسلة الرسائل
 // ==========================================
 startStoryBtn.addEventListener('click', async () => {
   playSound(523, 'triangle', 0.3);
@@ -114,11 +154,11 @@ startStoryBtn.addEventListener('click', async () => {
     4000
   );
 
-  // المقطع 5 (يبقى النص مكتوباً ويظهر الزر أسفله)
+  // المقطع 5
   await typeWriter("لان انتي مو مطالبة تكونين بخير طول الوقت يا مامي\nيكفي إنك أنتي ♥️.");
   await sleep(1200);
 
-  // إعداد الزر الوحيد
+  // إعداد الزر
   yesBtn.textContent = "الحين كملي\nعندي لك شيء ثاني✨";
   yesBtn.style.width = "100%";
   yesBtn.style.fontSize = "14px";
@@ -130,18 +170,16 @@ startStoryBtn.addEventListener('click', async () => {
   buttonsArea.appendChild(yesBtn);
   buttonsArea.classList.remove('hidden');
 
-  // عند ضغط الزر للانتقال للجزء الثاني
+  // عند ضغط الزر للجزء الثاني
   yesBtn.onclick = async () => {
     playSound(659, 'sine', 0.2);
     buttonsArea.classList.add('hidden');
     await animateTextOut();
 
-    // الجزء الثاني من المفاجأة
     await showSegment("خليني أدلعك شوي\nترى لي من اليوم وأنا محروم منك ومن دلعك.", 3000);
 
     await showSegment("أحبك يا مامي\nأحبك بطريقة ما تعرف تختصر نفسها بجمله\nأحبك لين صار وجودك عندي شي يشبه الطمأنينه\nما أنتبه له كل لحظه\nلكن إذا غاب أعرف قد إيش كان يسندني\n\nوإذا كان بخاطرك باقي شيء\nتعالي قولي لي أنا أبي أعرف كل اللي بخاطرك،\nحتى الأشياء اللي تقولين عنها ما تسوى\n\nلأن اللي يخص قلبك\nيسوى عندي كثير", 4500);
 
-    // كلمة حذف ذاتية
     await typeWriter("والحين كفاية تعب.");
     await sleep(1200);
     await backspaceText();
@@ -150,7 +188,6 @@ startStoryBtn.addEventListener('click', async () => {
     await typeWriter("تعالي يا مامي\nأبي أشوف ذيك الابتسامة اللي أحسها تخلّي الدنيا كلها تروق ♥️");
     await sleep(3500);
 
-    // الانتقال للشاشة النهائية والقلوب
     loveWindow.classList.add('pixel-fade-out');
     await sleep(500);
     loveWindow.classList.add('hidden');
@@ -163,7 +200,7 @@ startStoryBtn.addEventListener('click', async () => {
 });
 
 // ==========================================
-// تساقط القلوب والأشكال
+// تساقط القلوب
 // ==========================================
 function rainHearts() {
   if (!heartsContainer) return;
