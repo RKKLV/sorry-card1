@@ -1,11 +1,12 @@
 :root {
-  --bg-color: #ffe5ec;
-  --main-pink: #ff758f;
-  --dark-pink: #ff2a5f;
-  --border-color: #c9184a;
-  --text-color: #590d22;
-  --yes-color: #80ed99;
+  --bg-color: #2b213a;             /* خلفية أرجوانية داكنة */
+  --main-pink: #9d4edd;            /* بنفسجي نيون دافئ */
+  --dark-pink: #e0aaff;            /* لافندر مضيء */
+  --border-color: #5a189a;         /* أرجواني عميق للحدود */
+  --text-color: #f72585;           /* وردي مشرق للنصوص */
+  --yes-color: #72efdd;            /* تاكواز نيون للأزرار */
 }
+
 
 * {
   box-sizing: border-box;
