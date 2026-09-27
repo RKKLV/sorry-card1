@@ -3,36 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Letter V2 - Romantic Retro OS</title>
+  <title>Matcha & Strawberry Letter 🍵🍓</title>
 
-  <!-- خطوط البكسل واليدوية المعتمدة -->
+  <!-- خطوط البكسل والخط العربي المعتمد -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@400;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800&family=Handjet:wght@800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- القلوب والنجوم المتساقطة -->
+  <!-- القلوب والفراولة والماتشا المتساقطة -->
   <div class="particles-container" id="particlesContainer"></div>
 
-  <!-- الشاشة الأولى: الكرت الافتتاحي -->
+  <!-- الشاشة الأولى: الظرف الافتتاحي -->
   <div class="stage-one" id="stageOne">
     <div class="envelope-wrapper">
       <div class="envelope">
-        <span class="seal-icon">💌</span>
+        <span class="seal-icon">🍵🍓</span>
       </div>
-      <h2>رسالة خاصة لك ✨</h2>
+      <h2>رسالة خاصة بحجم حبك للماتشا 🍓✨</h2>
       <p class="sub-text">اضغط للفتح</p>
       <button class="btn start-btn" id="startBtn">افتح الرسالة 🫴🏻</button>
     </div>
   </div>
 
-  <!-- النافذة الرئيسية (Retro Window) -->
+  <!-- النافذة الرئيسية (Matcha & Strawberry Retro OS) -->
   <div class="window hidden" id="mainWindow">
     <div class="window-header">
-      <span class="window-title">Special_Message.exe 💜</span>
+      <span class="window-title">Matcha_Latte.exe 🍓</span>
       <div class="window-controls">
         <button class="win-btn">-</button>
         <button class="win-btn">+</button>
@@ -41,24 +41,30 @@
     </div>
 
     <div class="window-body" id="windowBody">
-      <!-- رسمة قطة البكسل بالثيم البنفسجي -->
-      <div class="pixel-cat">
-        <svg width="85" height="85" viewBox="0 0 100 100">
-          <rect x="25" y="30" width="50" height="50" rx="12" fill="#3c096c"/>
-          <polygon points="25,35 12,12 35,25" fill="#3c096c"/>
-          <polygon points="75,35 88,12 65,25" fill="#3c096c"/>
-          <polygon points="25,32 16,16 32,26" fill="#ff85a1"/>
-          <polygon points="75,32 84,16 68,26" fill="#ff85a1"/>
-          <!-- العيون -->
-          <g id="catEyes">
-            <circle cx="40" cy="50" r="5" fill="#ffffff"/>
-            <circle cx="60" cy="50" r="5" fill="#ffffff"/>
-            <circle cx="41" cy="51" r="2.5" fill="#000000"/>
-            <circle cx="61" cy="51" r="2.5" fill="#000000"/>
-          </g>
-          <ellipse cx="32" cy="58" rx="4" ry="2" fill="#ff85a1"/>
-          <ellipse cx="68" cy="58" rx="4" ry="2" fill="#ff85a1"/>
-          <path d="M 43 62 C 43 58, 50 58, 50 63 C 50 58, 57 58, 57 62 C 57 67, 50 71, 50 71 C 50 71, 43 67, 43 62 Z" fill="#ff2a5f"/>
+      <!-- رسمة كوب ماتشا بالفراولة كلاسيكي (Pixel Art SVG) -->
+      <div class="pixel-drink">
+        <svg width="80" height="90" viewBox="0 0 100 110">
+          <!-- الشفاطة -->
+          <rect x="52" y="5" width="8" height="30" rx="3" fill="#ff758f" transform="rotate(12 52 5)"/>
+          <!-- الكوب الزجاجي -->
+          <path d="M 25 30 L 30 95 C 30 100, 70 100, 70 95 L 75 30 Z" fill="rgba(255,255,255,0.7)" stroke="#283618" stroke-width="4"/>
+          <!-- طبقة الفراولة (الأسفل) -->
+          <path d="M 30 75 L 30 93 C 30 98, 70 98, 70 93 L 70 75 Z" fill="#ff4d6d"/>
+          <!-- قطع الفراولة الصغيرة -->
+          <circle cx="40" cy="85" r="2" fill="#fff"/>
+          <circle cx="55" cy="88" r="2" fill="#fff"/>
+          <circle cx="60" cy="80" r="2" fill="#fff"/>
+          <!-- طبقة حليب الفراولة (الوسط) -->
+          <path d="M 28 55 L 30 75 L 70 75 L 72 55 Z" fill="#ffb3c1"/>
+          <!-- طبقة الماتشا (الأعلى) -->
+          <path d="M 26 33 L 28 55 L 72 55 L 74 33 Z" fill="#a3b18a"/>
+          <!-- الكريمة أو المكعبات -->
+          <rect x="35" y="35" width="10" height="10" fill="#e9edc9" rx="2"/>
+          <rect x="52" y="38" width="12" height="10" fill="#e9edc9" rx="2"/>
+          <!-- عيون لطيفة على الكوب -->
+          <circle cx="43" cy="65" r="3" fill="#283618"/>
+          <circle cx="57" cy="65" r="3" fill="#283618"/>
+          <path d="M 47 70 Q 50 73 53 70" stroke="#283618" stroke-width="2" fill="none"/>
         </svg>
       </div>
 
@@ -69,8 +75,8 @@
 
       <!-- منطقة الأزرار -->
       <div class="buttons-area hidden" id="buttonsArea">
-        <button id="yesBtn" class="btn yes-btn">إي 💜</button>
-        <button id="noBtn" class="btn no-btn">لا</button>
+        <button id="yesBtn" class="btn yes-btn">إي 🍵</button>
+        <button id="noBtn" class="btn no-btn">لا 🍓</button>
       </div>
 
       <!-- زر الانتقال بين المراحل -->
@@ -81,9 +87,8 @@
   <!-- الشاشة النهائية -->
   <div class="final-screen hidden" id="finalScreen">
     <div class="final-card">
-      <div class="big-icon">💜✨</div>
-      <h1>أحبك جداً!</h1>
-      <p>شكراً لأنك دائماً بقلبي</p>
+      <div class="big-icon">🍵🍓♥️</div>
+      <h1>أحبك كثر ما تحبين الماتشا بالفراولة!</h1>
     </div>
   </div>
 
