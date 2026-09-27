@@ -103,7 +103,7 @@ startBtn.addEventListener('click', async () => {
   stageOne.classList.add('hidden');
   mainWindow.classList.remove('hidden');
 
-  await typeWriter("أهلاً بك في النسخة الخاصة ✨\nجاهز تبدأ؟");
+  await typeWriter("بس مامي قبل لا أقول لك اللي بخاطري، أبيك تعرفين إن هالشيء ما انكتب عشان أصلّح يومك \nانكتب لأنك تستاهلين أحد ينتبه لتعبك، حتى وأنتي نايمة");
   
   // في بداية السؤال: زر 'إي' عادي وزر 'لا' يهرب
   resetButtonsPosition();
