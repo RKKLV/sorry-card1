@@ -1,52 +1,49 @@
 :root {
-  /* ألوان ثيم الماتشا بالفراولة */
-  --bg-color: #fefae0;           /* لون حليبي كريمي */
-  --bg-pattern: #e9edc9;         /* أخضر ماتشا فاتح جداً */
-  --matcha-green: #a3b18a;       /* أخضر ماتشا */
-  --matcha-dark: #3a5a40;        /* أخضر غامق */
-  --strawberry-pink: #ffb3c1;    /* وردي فراولة */
-  --strawberry-red: #ff4d6d;     /* أحمر فراولة */
-  --border-color: #283618;       /* زيتي غامق للحدود */
-  --text-color: #283618;
-  --yes-color: #ccd5ae;          /* لون زر النعم الماتشا */
-  --no-color: #ffccd5;           /* لون زر الـ لا الفراولة */
+  --bg-color: #f7f3e9;
+  --main-pink: #ffb3c1;
+  --dark-pink: #ff4d6d;
+  --border-color: #2b3a28;
+  --matcha-green: #a3b18a;
+  --text-color: #2b3a28;
+  --card-bg: #fefae0;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Cairo', 'Handjet', monospace, sans-serif;
-  font-weight: 800;
-  user-select: none;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
 }
 
 body {
   background-color: var(--bg-color);
   background-image: 
-    linear-gradient(45deg, var(--bg-pattern) 25%, transparent 25%), 
-    linear-gradient(-45deg, var(--bg-pattern) 25%, transparent 25%), 
-    linear-gradient(45deg, transparent 75%, var(--bg-pattern) 75%), 
-    linear-gradient(-45deg, transparent 75%, var(--bg-pattern) 75%);
-  background-size: 32px 32px;
-  background-position: 0 0, 0 16px, 16px -16px, -16px 0px;
+    linear-gradient(45deg, #e9edc9 25%, transparent 25%), 
+    linear-gradient(-45deg, #e9edc9 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, #e9edc9 75%), 
+    linear-gradient(-45deg, transparent 75%, #e9edc9 75%);
+  background-size: 30px 30px;
+  background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   position: relative;
+  user-select: none;
+  direction: rtl;
 }
 
-/* التساقط خلف الشاشة */
-.particles-container {
+/* القلوب والأشكال المتساقطة */
+.hearts-container {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 1;
 }
 
-.particle {
+.falling-heart {
   position: absolute;
   animation: fall linear infinite;
 }
@@ -56,19 +53,19 @@ body {
   100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
 }
 
-/* الشاشة الأولى */
+/* الصفحة الأولى */
 .stage-one {
   z-index: 10;
   text-align: center;
   max-width: 90%;
-  width: 360px;
+  width: 380px;
 }
 
 .envelope-wrapper {
-  background: #fff;
+  background: #ffffff;
   padding: 30px 20px;
   border: 4px solid var(--border-color);
-  border-radius: 16px;
+  border-radius: 20px;
   box-shadow: 6px 6px 0px var(--border-color);
   display: flex;
   flex-direction: column;
@@ -79,36 +76,33 @@ body {
 .envelope {
   width: 80px;
   height: 60px;
-  background: var(--strawberry-pink);
+  background: #fae1dd;
   border: 3px solid var(--border-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
-.seal-icon { font-size: 26px; }
+.heart-seal { font-size: 26px; }
 
 .envelope-wrapper h2 {
-  font-size: 22px;
-  color: var(--border-color);
-}
-
-.sub-text {
   font-size: 16px;
-  color: var(--matcha-dark);
+  color: var(--text-color);
+  line-height: 1.7;
+  text-align: center;
 }
 
-/* النافذة الرئيسية */
+/* النافذة الكلاسيكية */
 .window {
-  width: 370px;
+  width: 360px;
   max-width: 92vw;
-  height: 530px;
-  max-height: 86vh;
-  background: #fdf0d5;
+  height: 520px;
+  max-height: 88vh;
+  background: var(--card-bg);
   border: 4px solid var(--border-color);
-  border-radius: 16px;
-  box-shadow: 8px 8px 0px rgba(40, 54, 24, 0.3);
+  border-radius: 18px;
+  box-shadow: 8px 8px 0px rgba(43, 58, 40, 0.3);
   z-index: 10;
   overflow: hidden;
   display: flex;
@@ -120,7 +114,7 @@ body {
 
 .window-header {
   background: var(--matcha-green);
-  padding: 8px 12px;
+  padding: 10px 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -128,11 +122,7 @@ body {
   flex-shrink: 0;
 }
 
-.window-title {
-  color: #fff;
-  font-size: 16px;
-  font-family: 'Handjet', monospace;
-}
+.window-title { color: #ffffff; font-size: 13px; font-family: 'Press Start 2P', monospace; }
 
 .window-controls { display: flex; gap: 5px; }
 
@@ -141,11 +131,14 @@ body {
   height: 20px;
   background: #fff;
   border: 2px solid var(--border-color);
-  font-size: 14px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.win-btn.close { background: var(--strawberry-red); color: #fff; }
+.win-btn.close { background: #ff758f; color: #fff; }
 
+/* جسم النافذة */
 .window-body {
   padding: 15px;
   text-align: center;
@@ -158,40 +151,34 @@ body {
   justify-content: space-between;
 }
 
-.pixel-drink {
+.pixel-cat {
   flex-shrink: 0;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
-/* صندوق النص المنقط مع تعديل ارتفاع السطر للتباعد الممتاز */
+/* إطار النص */
 .text-container {
   width: 100%;
   flex: 1;
-  padding: 12px 16px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
   border: 2px dashed var(--matcha-green);
   box-sizing: border-box;
   overflow-y: auto;
-  scroll-behavior: smooth;
-  margin-bottom: 10px;
-  direction: rtl;
+  margin-bottom: 12px;
 }
 
 .text-container::-webkit-scrollbar { width: 6px; }
-.text-container::-webkit-scrollbar-thumb {
-  background: var(--strawberry-red);
-  border-radius: 4px;
-}
+.text-container::-webkit-scrollbar-thumb { background: var(--matcha-green); border-radius: 4px; }
 
 .typewriter-text {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--text-color);
-  line-height: 1.8; /* حماية تامة من تداخل الأسطر */
-  text-align: right;
+  line-height: 1.8;
+  text-align: center;
   white-space: pre-wrap;
   word-wrap: break-word;
-  overflow-wrap: break-word;
 }
 
 /* الأزرار */
@@ -205,67 +192,77 @@ body {
 }
 
 .btn {
-  padding: 8px 18px;
-  font-size: 16px;
+  padding: 10px 18px;
+  font-size: 15px;
   border: 3px solid var(--border-color);
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: 4px 4px 0px var(--border-color);
   background-color: #fff;
   color: var(--text-color);
   cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
-.start-btn, .action-btn {
-  background-color: var(--strawberry-red);
-  color: #fff;
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--border-color);
+}
+
+.start-btn {
+  background-color: var(--main-pink);
+  color: #2b3a28;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px;
 }
 
 .yes-btn {
-  background-color: var(--yes-color);
-  color: var(--border-color);
+  background-color: #ccd5ae;
+  color: #2b3a28;
 }
 
-.no-btn {
-  background-color: var(--no-color);
-  transition: all 0.12s ease-out;
+/* أنيميشن المسح بكسلي CRT Wipe */
+.pixel-fade-out {
+  animation: retroPixelOut 0.45s steps(6) forwards;
 }
 
-/* أنيميشن */
-.pixel-fade-out { animation: pixelDisappear 0.4s forwards; }
-.pixel-fade-in { animation: pixelAppear 0.4s forwards; }
-
-@keyframes pixelDisappear {
-  0% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(0.95); }
+.pixel-fade-in {
+  animation: retroPixelIn 0.45s steps(6) forwards;
 }
 
-@keyframes pixelAppear {
-  0% { opacity: 0; transform: scale(0.95); }
-  100% { opacity: 1; transform: scale(1); }
+@keyframes retroPixelOut {
+  0% { opacity: 1; transform: scale(1); clip-path: inset(0 0 0 0); }
+  50% { opacity: 0.5; transform: scaleY(0.5); clip-path: inset(20% 0 20% 0); }
+  100% { opacity: 0; transform: scaleY(0); clip-path: inset(50% 0 50% 0); }
 }
+
+@keyframes retroPixelIn {
+  0% { opacity: 0; transform: scaleY(0); clip-path: inset(50% 0 50% 0); }
+  50% { opacity: 0.7; transform: scaleY(0.5); clip-path: inset(15% 0 15% 0); }
+  100% { opacity: 1; transform: scale(1); clip-path: inset(0 0 0 0); }
+}
+
+/* شاشة النهاية */
+.final-screen {
+  z-index: 20;
+  text-align: center;
+  animation: popIn 0.5s ease;
+  max-width: 90%;
+}
+
+.final-card {
+  background: #ffffff;
+  padding: 40px 25px;
+  border: 5px solid var(--border-color);
+  border-radius: 20px;
+  box-shadow: 8px 8px 0px var(--border-color);
+}
+
+.big-heart { font-size: 45px; margin-bottom: 12px; }
+.final-card h1 { font-size: 22px; color: var(--dark-pink); margin-bottom: 8px; }
+.final-card p { font-size: 15px; color: var(--text-color); }
 
 @keyframes popIn {
   0% { transform: scale(0.6); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
 }
-
-/* الشاشة النهائية */
-.final-screen {
-  z-index: 20;
-  text-align: center;
-  animation: popIn 0.5s ease;
-  width: 340px;
-  max-width: 90vw;
-}
-
-.final-card {
-  background: #fff;
-  padding: 35px 20px;
-  border: 4px solid var(--border-color);
-  border-radius: 16px;
-  box-shadow: 8px 8px 0px var(--border-color);
-  direction: rtl;
-}
-
-.big-icon { font-size: 40px; margin-bottom: 10px; }
-.final-card h1 { font-size: 20px; color: var(--border-color); line-height: 1.5; }
