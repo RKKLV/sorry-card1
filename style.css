@@ -29,13 +29,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
   user-select: none;
   direction: rtl;
+  padding: 15px;
 }
 
-/* القلوب والأشكال المتساقطة */
+/* تساقط القلوب */
 .hearts-container {
   position: fixed;
   inset: 0;
@@ -53,29 +54,30 @@ body {
   100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
 }
 
-/* الصفحة الأولى */
+/* الكروت والتغليف العام */
 .stage-one {
   z-index: 10;
   text-align: center;
-  max-width: 90%;
+  max-width: 100%;
   width: 380px;
+  animation: popIn 0.4s ease;
 }
 
 .envelope-wrapper {
   background: #ffffff;
-  padding: 30px 20px;
+  padding: 25px 20px;
   border: 4px solid var(--border-color);
   border-radius: 20px;
   box-shadow: 6px 6px 0px var(--border-color);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .envelope {
-  width: 80px;
-  height: 60px;
+  width: 75px;
+  height: 55px;
   background: #fae1dd;
   border: 3px solid var(--border-color);
   display: flex;
@@ -84,13 +86,84 @@ body {
   border-radius: 10px;
 }
 
-.heart-seal { font-size: 26px; }
+.heart-seal { font-size: 24px; }
 
 .envelope-wrapper h2 {
   font-size: 16px;
   color: var(--text-color);
-  line-height: 1.7;
+  line-height: 1.6;
   text-align: center;
+}
+
+/* شريط التقدّم (Progress Bar) */
+.loading-sub {
+  font-size: 14px;
+  color: var(--dark-pink);
+  margin-top: 5px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #f1f1f1;
+  border: 3px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background-color: var(--matcha-green);
+  transition: width 0.05s linear;
+}
+
+/* تنسيق شاشة التشخيص والعلاج */
+.diagnosis-wrapper {
+  align-items: flex-start;
+  text-align: right;
+  padding: 20px;
+}
+
+.badge {
+  background: var(--main-pink);
+  color: var(--border-color);
+  padding: 4px 12px;
+  border-radius: 8px;
+  border: 2px solid var(--border-color);
+  font-size: 13px;
+}
+
+.diagnosis-section {
+  width: 100%;
+  background: #fdfaf6;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px dashed var(--matcha-green);
+  margin-top: 5px;
+}
+
+.diagnosis-section.highlight {
+  background: #fff0f3;
+  border-color: var(--dark-pink);
+}
+
+.diagnosis-section h3 {
+  font-size: 15px;
+  color: var(--dark-pink);
+  margin-bottom: 6px;
+}
+
+.diagnosis-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.diagnosis-section li {
+  font-size: 13px;
+  color: var(--text-color);
+  line-height: 1.7;
 }
 
 /* النافذة الكلاسيكية */
@@ -122,7 +195,7 @@ body {
   flex-shrink: 0;
 }
 
-.window-title { color: #ffffff; font-size: 13px; font-family: 'Press Start 2P', monospace; }
+.window-title { color: #ffffff; font-size: 12px; font-family: 'Press Start 2P', monospace; }
 
 .window-controls { display: flex; gap: 5px; }
 
@@ -138,7 +211,6 @@ body {
 
 .win-btn.close { background: #ff758f; color: #fff; }
 
-/* جسم النافذة */
 .window-body {
   padding: 15px;
   text-align: center;
@@ -151,12 +223,8 @@ body {
   justify-content: space-between;
 }
 
-.pixel-cat {
-  flex-shrink: 0;
-  margin-bottom: 10px;
-}
+.pixel-cat { flex-shrink: 0; margin-bottom: 10px; }
 
-/* إطار النص */
 .text-container {
   width: 100%;
   flex: 1;
@@ -212,8 +280,9 @@ body {
   background-color: var(--main-pink);
   color: #2b3a28;
   width: 100%;
-  font-size: 16px;
+  font-size: 15px;
   padding: 12px;
+  margin-top: 5px;
 }
 
 .yes-btn {
@@ -221,14 +290,9 @@ body {
   color: #2b3a28;
 }
 
-/* أنيميشن المسح بكسلي CRT Wipe */
-.pixel-fade-out {
-  animation: retroPixelOut 0.45s steps(6) forwards;
-}
-
-.pixel-fade-in {
-  animation: retroPixelIn 0.45s steps(6) forwards;
-}
+/* أنيميشن */
+.pixel-fade-out { animation: retroPixelOut 0.45s steps(6) forwards; }
+.pixel-fade-in { animation: retroPixelIn 0.45s steps(6) forwards; }
 
 @keyframes retroPixelOut {
   0% { opacity: 1; transform: scale(1); clip-path: inset(0 0 0 0); }
@@ -242,7 +306,6 @@ body {
   100% { opacity: 1; transform: scale(1); clip-path: inset(0 0 0 0); }
 }
 
-/* شاشة النهاية */
 .final-screen {
   z-index: 20;
   text-align: center;
