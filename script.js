@@ -82,7 +82,7 @@ startTreatmentBtn.addEventListener('click', () => {
 // ==========================================
 // دوال الكتابة والمسح
 // ==========================================
-async function typeWriter(text, speed = 45) {
+async function typeWriter(text, speed = 65) {
   for (let i = 0; i < text.length; i++) {
     storyText.textContent += text.charAt(i);
     if (textContainer) {
