@@ -3,40 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>إلى جودي ♥️</title>
-  <!-- Start the Handjet request early; the font includes Arabic glyphs. -->
+  <title>Letter V2 - Romantic Retro OS</title>
+
+  <!-- خطوط البكسل واليدوية المعتمدة -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Handjet:wght@400;700;800&display=swap" rel="stylesheet">
-          </g>
-          <polygon points="47,58 53,58 50,61" fill="#ff758f"/>
-          <path d="M 43 68 C 43 63, 50 63, 50 68 C 50 63, 57 63, 57 68 C 57 73, 50 78, 50 78 C 50 78, 43 73, 43 68 Z" fill="#ff2a5f"/>
-        </svg>
-      </div>
+  <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@400;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-      <!-- الإطار النصي لتشغيل القصة -->
-      <div class="text-container" id="textContainer">
-        <div class="typewriter-text" id="storyText"></div>
-      </div>
+  <!-- القلوب والنجوم المتساقطة -->
+  <div class="particles-container" id="particlesContainer"></div>
 
-      <!-- منطقة الأزرار المترددة والتفاعلية -->
-      <div class="buttons-area hidden" id="buttonsArea">
-        <button id="yesBtn" class="btn yes-btn">إي ♥️</button>
-        <button id="noBtn" class="btn no-btn">لا</button>
+  <!-- الشاشة الأولى: الكرت الافتتاحي -->
+  <div class="stage-one" id="stageOne">
+    <div class="envelope-wrapper">
+      <div class="envelope">
+        <span class="seal-icon">💌</span>
       </div>
-
-      <!-- زر المرحلة الثانية -->
-      <button id="nextPhaseBtn" class="btn action-btn hidden">طيب… تعالي الحين 🫴🏻</button>
+      <h2>رسالة خاصة لك ✨</h2>
+      <p class="sub-text">اضغط للفتح</p>
+      <button class="btn start-btn" id="startBtn">افتح الرسالة 🫴🏻</button>
     </div>
   </div>
 
-  <!-- الشاشة الأخيرة: النهاية والاحتفال -->
+  <!-- النافذة الرئيسية (Retro Window) -->
+  <div class="window hidden" id="mainWindow">
+    <div class="window-header">
+      <span class="window-title">Special_Message.exe 💜</span>
+      <div class="window-controls">
+        <button class="win-btn">-</button>
+        <button class="win-btn">+</button>
+        <button class="win-btn close">×</button>
+      </div>
+    </div>
+
+    <div class="window-body" id="windowBody">
+      <!-- رسمة قطة البكسل بالثيم البنفسجي -->
+      <div class="pixel-cat">
+        <svg width="85" height="85" viewBox="0 0 100 100">
+          <rect x="25" y="30" width="50" height="50" rx="12" fill="#3c096c"/>
+          <polygon points="25,35 12,12 35,25" fill="#3c096c"/>
+          <polygon points="75,35 88,12 65,25" fill="#3c096c"/>
+          <polygon points="25,32 16,16 32,26" fill="#ff85a1"/>
+          <polygon points="75,32 84,16 68,26" fill="#ff85a1"/>
+          <!-- العيون -->
+          <g id="catEyes">
+            <circle cx="40" cy="50" r="5" fill="#ffffff"/>
+            <circle cx="60" cy="50" r="5" fill="#ffffff"/>
+            <circle cx="41" cy="51" r="2.5" fill="#000000"/>
+            <circle cx="61" cy="51" r="2.5" fill="#000000"/>
+          </g>
+          <ellipse cx="32" cy="58" rx="4" ry="2" fill="#ff85a1"/>
+          <ellipse cx="68" cy="58" rx="4" ry="2" fill="#ff85a1"/>
+          <path d="M 43 62 C 43 58, 50 58, 50 63 C 50 58, 57 58, 57 62 C 57 67, 50 71, 50 71 C 50 71, 43 67, 43 62 Z" fill="#ff2a5f"/>
+        </svg>
+      </div>
+
+      <!-- إطار النص المنقط -->
+      <div class="text-container" id="textContainer">
+        <div class="typewriter-text" id="typewriterText"></div>
+      </div>
+
+      <!-- منطقة الأزرار -->
+      <div class="buttons-area hidden" id="buttonsArea">
+        <button id="yesBtn" class="btn yes-btn">إي 💜</button>
+        <button id="noBtn" class="btn no-btn">لا</button>
+      </div>
+
+      <!-- زر الانتقال بين المراحل -->
+      <button id="nextPhaseBtn" class="btn action-btn hidden">استمرار 🫴🏻</button>
+    </div>
+  </div>
+
+  <!-- الشاشة النهائية -->
   <div class="final-screen hidden" id="finalScreen">
     <div class="final-card">
-      <div class="big-heart">انتهى الكرت بس انا ما انتهيت منك ياروحي</div>
-      <h1>احبك يا جودي♥️</h1>
+      <div class="big-icon">💜✨</div>
+      <h1>أحبك جداً!</h1>
+      <p>شكراً لأنك دائماً بقلبي</p>
     </div>
   </div>
 
