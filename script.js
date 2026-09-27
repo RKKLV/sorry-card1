@@ -4,7 +4,6 @@
 const stageOne = document.getElementById('stageOne');
 const startStoryBtn = document.getElementById('startStoryBtn');
 const loveWindow = document.getElementById('loveWindow');
-const windowBody = document.getElementById('windowBody');
 const storyText = document.getElementById('storyText');
 const textContainer = document.getElementById('textContainer');
 const buttonsArea = document.getElementById('buttonsArea');
@@ -14,7 +13,7 @@ const finalScreen = document.getElementById('finalScreen');
 const heartsContainer = document.getElementById('heartsContainer');
 
 // ==========================================
-// نظام الأصوات والوقت
+// نظام الأصوات
 // ==========================================
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -24,7 +23,7 @@ function playSound(freq, type, duration) {
     const gain = audioCtx.createGain();
     osc.type = type;
     osc.frequency.value = freq;
-    gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+    gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
     osc.connect(gain);
     gain.connect(audioCtx.destination);
@@ -36,40 +35,44 @@ function playSound(freq, type, duration) {
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 // ==========================================
-// دوال كتابة ومسح النصوص
+// دوال الكتابة والمسح
 // ==========================================
-
-// دالة كتابة النص حرفاً بحرف
-async function typeWriter(text, speed = 55) {
+async function typeWriter(text, speed = 50) {
   for (let i = 0; i < text.length; i++) {
     storyText.textContent += text.charAt(i);
     if (textContainer) {
       textContainer.scrollTop = textContainer.scrollHeight;
     }
-
     if (text.charAt(i) !== ' ' && text.charAt(i) !== '\n') {
-      playSound(450, 'sine', 0.04);
+      playSound(480, 'sine', 0.03);
     }
     await sleep(speed);
   }
 }
 
-// دالة مسح النص بأنيميشن بكسلي خفيف
+async function backspaceText(speed = 65) {
+  while (storyText.textContent.length > 0) {
+    storyText.textContent = storyText.textContent.slice(0, -1);
+    playSound(320, 'square', 0.03);
+    await sleep(speed);
+  }
+}
+
 async function animateTextOut() {
   if (textContainer) {
+    playSound(200, 'square', 0.12);
     textContainer.classList.add('pixel-fade-out');
-    await sleep(500);
+    await sleep(450);
     storyText.textContent = '';
     textContainer.scrollTop = 0;
     textContainer.classList.remove('pixel-fade-out');
     textContainer.classList.add('pixel-fade-in');
-    setTimeout(() => textContainer.classList.remove('pixel-fade-in'), 500);
+    setTimeout(() => textContainer.classList.remove('pixel-fade-in'), 450);
   } else {
     storyText.textContent = '';
   }
 }
 
-// دالة عرض مقطع نصي، الانتظار لثوانٍ، ثم حذفه
 async function showSegment(text, pauseTime = 3500) {
   await typeWriter(text);
   await sleep(pauseTime);
@@ -77,15 +80,13 @@ async function showSegment(text, pauseTime = 3500) {
 }
 
 // ==========================================
-// سريان القصة - الصفحة الثانية
+// التفاعل وسلسلة الرسائل
 // ==========================================
-
 startStoryBtn.addEventListener('click', async () => {
   playSound(523, 'triangle', 0.3);
   stageOne.classList.add('hidden');
   loveWindow.classList.remove('hidden');
 
-  // إخفاء الأزرار مؤقتاً وقرار إخفاء زر "لا"
   buttonsArea.classList.add('hidden');
   if (noBtn) noBtn.classList.add('hidden');
 
@@ -117,25 +118,39 @@ startStoryBtn.addEventListener('click', async () => {
   await typeWriter("لان انتي مو مطالبة تكونين بخير طول الوقت يا مامي\nيكفي إنك أنتي ♥️.");
   await sleep(1200);
 
-  // إعداد وتنسيق الزر الموحد
+  // إعداد الزر الوحيد
   yesBtn.textContent = "الحين كملي\nعندي لك شيء ثاني✨";
   yesBtn.style.width = "100%";
-  yesBtn.style.fontSize = "13px";
+  yesBtn.style.fontSize = "14px";
   yesBtn.style.padding = "12px 10px";
   yesBtn.style.lineHeight = "1.5";
   yesBtn.style.whiteSpace = "pre-line";
 
-  buttonsArea.innerHTML = ''; // تفريغ الخيارات
-  buttonsArea.appendChild(yesBtn); // إضافة الزر الوحيد
+  buttonsArea.innerHTML = '';
+  buttonsArea.appendChild(yesBtn);
   buttonsArea.classList.remove('hidden');
 
-  // عند الضغط على الزر للانتقال للمرحلة التالية
+  // عند ضغط الزر للانتقال للجزء الثاني
   yesBtn.onclick = async () => {
     playSound(659, 'sine', 0.2);
     buttonsArea.classList.add('hidden');
     await animateTextOut();
 
-    // انتقال ناعم إلى الشاشة الأخيرة مع القلوب المتساقطة
+    // الجزء الثاني من المفاجأة
+    await showSegment("خليني أدلعك شوي\nترى لي من اليوم وأنا محروم منك ومن دلعك.", 3000);
+
+    await showSegment("أحبك يا مامي\nأحبك بطريقة ما تعرف تختصر نفسها بجمله\nأحبك لين صار وجودك عندي شي يشبه الطمأنينه\nما أنتبه له كل لحظه\nلكن إذا غاب أعرف قد إيش كان يسندني\n\nوإذا كان بخاطرك باقي شيء\nتعالي قولي لي أنا أبي أعرف كل اللي بخاطرك،\nحتى الأشياء اللي تقولين عنها ما تسوى\n\nلأن اللي يخص قلبك\nيسوى عندي كثير", 4500);
+
+    // كلمة حذف ذاتية
+    await typeWriter("والحين كفاية تعب.");
+    await sleep(1200);
+    await backspaceText();
+    await sleep(400);
+
+    await typeWriter("تعالي يا مامي\nأبي أشوف ذيك الابتسامة اللي أحسها تخلّي الدنيا كلها تروق ♥️");
+    await sleep(3500);
+
+    // الانتقال للشاشة النهائية والقلوب
     loveWindow.classList.add('pixel-fade-out');
     await sleep(500);
     loveWindow.classList.add('hidden');
@@ -148,21 +163,21 @@ startStoryBtn.addEventListener('click', async () => {
 });
 
 // ==========================================
-// تساقط القلوب
+// تساقط القلوب والأشكال
 // ==========================================
 function rainHearts() {
   if (!heartsContainer) return;
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 45; i++) {
     setTimeout(() => {
       const heart = document.createElement('div');
       heart.classList.add('falling-heart');
-      heart.textContent = ['♥️', '💖', '🌸', '✨'][Math.floor(Math.random() * 4)];
+      heart.textContent = ['♥️', '💖', '🌸', '✨', '🍵', '🍓'][Math.floor(Math.random() * 6)];
       heart.style.left = Math.random() * 100 + 'vw';
       heart.style.animationDuration = Math.random() * 2 + 2 + 's';
-      heart.style.fontSize = Math.random() * 16 + 12 + 'px';
+      heart.style.fontSize = Math.random() * 16 + 14 + 'px';
 
       heartsContainer.appendChild(heart);
       setTimeout(() => heart.remove(), 4000);
-    }, i * 100);
+    }, i * 90);
   }
 }
