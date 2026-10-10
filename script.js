@@ -10,12 +10,12 @@ function nextStep(stepNumber) {
     }, 180);
 }
 
-function openMessage(text) {
+function openMessage(htmlContent) {
     const contents = document.querySelectorAll('.step-content');
     contents.forEach(el => el.classList.remove('active'));
 
     setTimeout(() => {
-        document.getElementById('message-text').innerText = text;
+        document.getElementById('message-text').innerHTML = htmlContent;
         document.getElementById('step-message').classList.add('active');
     }, 180);
 }
