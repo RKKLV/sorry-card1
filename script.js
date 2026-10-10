@@ -1,10 +1,8 @@
 function nextStep(stepNumber) {
     const contents = document.querySelectorAll('.step-content');
     
-    // إخفاء الكل بسلاسة
     contents.forEach(el => el.classList.remove('active'));
 
-    // إظهار الخطوة المطلوبة بعد جزء من الثانية لتفعيل الأنيميشن
     setTimeout(() => {
         if (stepNumber === 2) {
             document.getElementById('step-2').classList.add('active');
