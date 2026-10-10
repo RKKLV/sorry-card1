@@ -17,6 +17,9 @@ function openMessage(htmlContent) {
     setTimeout(() => {
         document.getElementById('message-text').innerHTML = htmlContent;
         document.getElementById('step-message').classList.add('active');
+        // إعادة التمرير للأعلى عند فتح رسالة جديدة
+        const scrollArea = document.querySelector('.message-scroll-area');
+        if (scrollArea) scrollArea.scrollTop = 0;
     }, 180);
 }
 
