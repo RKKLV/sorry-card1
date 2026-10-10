@@ -1,18 +1,32 @@
-function nextStep(step) {
-    document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
-    if (step === 2) {
-        document.getElementById('step-2').classList.remove('hidden');
-    }
+function nextStep(stepNumber) {
+    const contents = document.querySelectorAll('.step-content');
+    
+    // إخفاء الكل بسلاسة
+    contents.forEach(el => el.classList.remove('active'));
+
+    // إظهار الخطوة المطلوبة بعد جزء من الثانية لتفعيل الأنيميشن
+    setTimeout(() => {
+        if (stepNumber === 2) {
+            document.getElementById('step-2').classList.add('active');
+        }
+    }, 180);
 }
 
 function openMessage(text) {
-    document.getElementById('step-1').classList.add('hidden');
-    document.getElementById('step-2').classList.add('hidden');
-    document.getElementById('step-message').classList.remove('hidden');
-    document.getElementById('message-text').innerText = text;
+    const contents = document.querySelectorAll('.step-content');
+    contents.forEach(el => el.classList.remove('active'));
+
+    setTimeout(() => {
+        document.getElementById('message-text').innerText = text;
+        document.getElementById('step-message').classList.add('active');
+    }, 180);
 }
 
 function backToEnvelopes() {
-    document.getElementById('step-message').classList.add('hidden');
-    document.getElementById('step-2').classList.remove('hidden');
+    const contents = document.querySelectorAll('.step-content');
+    contents.forEach(el => el.classList.remove('active'));
+
+    setTimeout(() => {
+        document.getElementById('step-2').classList.add('active');
+    }, 180);
 }
