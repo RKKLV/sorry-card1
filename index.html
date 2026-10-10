@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>هدية خاصة لك</title>
-    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>مساحتك الخاصة ♡</title>
+    <!-- استيراد خط الرقعة الفاخر من جوجل فونتس -->
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- قلوب متحركة في الخلفية لإضافة لمسة خيالية -->
+    <div class="floating-hearts">
+        <span>🤍</span><span>💗</span><span>🤍</span><span>💖</span><span>🤍</span><span>💗</span>
+    </div>
 
     <div class="browser-window">
         <!-- شريط المتصفح الفاخر -->
@@ -17,16 +23,16 @@
                 <span class="dot dot-yellow"></span>
                 <span class="dot dot-green"></span>
             </div>
-            <div class="browser-title">Special Gift for You 🤍</div>
+            <div class="browser-title">Special Gift for My Mami ♡</div>
         </div>
 
         <!-- جسم النافذة -->
         <div class="browser-body">
             <div class="paper-note">
-                <!-- عناصر زينة رقيقة متحركة -->
+                <!-- عنصر زينة رقيق -->
                 <div class="flower-dec">🌸</div>
 
-                <!-- الخطوة الأولى -->
+                <!-- الخطوة الأولى (الصفحة الرئيسية) -->
                 <div id="step-1" class="step-content active">
                     <p class="intro-text">
                         يا دلوعتي، تعالي شوي.. ♡<br>
@@ -35,35 +41,36 @@
                     <button class="btn-shine" onclick="nextStep(2)">افتحي يا مامي ♡</button>
                 </div>
 
-                <!-- الخطوة الثانية: الأظرف التفاعلية -->
+                <!-- الخطوة الثانية: الأظرف الاحترافية الجديدة -->
                 <div id="step-2" class="step-content">
                     <h2 class="section-title">رسائل من قلبي 💌</h2>
                     <div class="envelopes-grid">
-                        <div class="envelope" onclick="openMessage('اشتقت لك كثيراً، تذكر أنني معك دائماً في كل خطوة.')">
-                            <div class="envelope-flap"></div>
-                            <div class="heart-seal">❤️</div>
-                            <span>you miss me</span>
+                        
+                        <div class="envelope-card" onclick="openMessage('يا مدللة قلبي حتى لو ما قدرت أوصلك بالكلام، والله ما أبي وجعك يضطرّك تواجهينه لحالك.<br><br><span class=\'signature\'>من ريّانك اللي وده لو يقدر يهوّن عن قلبك قبل لا يحسّ بالوجع.</span>')">
+                            <div class="env-icon">💌</div>
+                            <span>افتحيني إذا كنتي زعلانة ♡</span>
                         </div>
-                        <div class="envelope" onclick="openMessage('لا تقلق، كل صعوبة تليها راحة وعوض جميل، ابتسم!')">
-                            <div class="envelope-flap"></div>
-                            <div class="heart-seal">❤️</div>
-                            <span>you're sad</span>
+
+                        <div class="envelope-card" onclick="openMessage('ما أقدر أرجع للورا وأغيّر اللي ما يرضي قلبك بس أقدر أخلي بكرة يشهد لك إنك ما كنتي يوم شعور عابر في حياتي')">
+                            <div class="env-icon">💌</div>
+                            <span>افتحيني إذا رجع ببالك ماضيّي</span>
                         </div>
-                        <div class="envelope" onclick="openMessage('سعيد جداً لرؤيتك سعيداً، ديمومة الفرح لقلبك!')">
-                            <div class="envelope-flap"></div>
-                            <div class="heart-seal">❤️</div>
-                            <span>you're happy</span>
+
+                        <div class="envelope-card" onclick="openMessage('يا جعل صوتك هو الشي الوحيد اللي لو تكرّر ألف مرّة، ما قالت روحي اكتفيت من عاشقك اللي كل مرّة يحنّ لك، يحسّ إن الشوق توّه يعرف اسمك')">
+                            <div class="env-icon">💌</div>
+                            <span>افتحيني إذا اشتقتي لي</span>
                         </div>
-                        <div class="envelope" onclick="openMessage('أرسل لك أدفأ عناق واحتواء في العالم كله.')">
-                            <div class="envelope-flap"></div>
-                            <div class="heart-seal">❤️</div>
-                            <span>you need a hug</span>
+
+                        <div class="envelope-card" onclick="openMessage('أنا ما أبي أطلع من زعلك منتصر؛ أبي أطلع منه وأنا فاهم قلبك أكثر، ومخلّيه أأمن معي من قبل.<br><br><span class=\'signature\'>من ريانك اللي يبي يفهمك حتى في اللحظة اللي يعجز فيها عن فهم نفسه.</span>')">
+                            <div class="env-icon">💌</div>
+                            <span>افتحيني إذا زعلنا من بعض</span>
                         </div>
-                        <div class="envelope" onclick="openMessage('حتى في أوقات الاختلاف، تبقى أنت الأغلى والأقرب لقلبي.')">
-                            <div class="envelope-flap"></div>
-                            <div class="heart-seal">❤️</div>
-                            <span>we fight</span>
+
+                        <div class="envelope-card" onclick="openMessage('يا آخر الحنان وأوّله ولو كان للطمأنينة عنوان كان قلبي يكتبه بخطّك، ويعلّق على بابه هنا لا يحتاج الحبّ إلى شرح.<br><br><span class=\'signature\'>من ريّان للمكان اللي سمّاه قلبه مامي.</span>')">
+                            <div class="env-icon">💌</div>
+                            <span>افتحيني إذا احتجتي حضن</span>
                         </div>
+
                     </div>
                 </div>
 
