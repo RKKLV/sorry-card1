@@ -53,10 +53,10 @@ body {
     100% { transform: translateY(-105vh) rotate(360deg); opacity: 0; }
 }
 
-/* نافذة المتصفح مع طفو خيالي ودخول سينمائي */
+/* نافذة المتصفح الرئيسية */
 .browser-window {
     width: 950px;
-    height: 620px;
+    height: 640px;
     background: #fff;
     border-radius: 18px;
     box-shadow: 0 40px 80px rgba(92, 58, 58, 0.22), 0 0 0 1px rgba(255,255,255,0.7) inset;
@@ -115,19 +115,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 25px;
+    padding: 20px;
     background-image: radial-gradient(#e8b4c4 15%, transparent 16%);
     background-size: 50px 50px;
 }
 
-/* ورقة الملاحظة الداخلية بتصميم راقي */
+/* ورقة الملاحظة الداخلية */
 .paper-note {
     width: 96%;
     height: 94%;
     background: #fffcfb;
     border-radius: 16px 26px 20px 16px;
     box-shadow: 0 12px 35px rgba(92, 58, 58, 0.08), inset 0 0 50px rgba(245, 230, 230, 0.5);
-    padding: 30px;
+    padding: 25px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -151,7 +151,7 @@ body {
     100% { transform: rotate(15deg) scale(1.12); }
 }
 
-/* الانتقالات السلسة بالحركات الفيزيائية */
+/* الانتقالات بين الصفحات */
 .step-content {
     position: absolute;
     width: 100%;
@@ -173,40 +173,41 @@ body {
     transform: scale(1) translateY(0);
 }
 
-/* نص الترحيب بخط الرقعة الخرافي */
+/* نص الترحيب */
 .intro-text {
     font-family: 'Aref Ruqaa', serif;
     color: var(--text-color);
-    font-size: 26px;
+    font-size: 25px;
     line-height: 2.3;
     max-width: 720px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     padding: 0 10px;
 }
 
 .section-title {
     font-family: 'Aref Ruqaa', serif;
     color: var(--text-color);
-    font-size: 40px;
-    margin-bottom: 18px;
+    font-size: 36px;
+    margin-bottom: 15px;
 }
 
-/* أزرار فاخرة بمؤثرات لمعة واهتزاز ناعم */
+/* أزرار فاخرة */
 .btn-shine {
     position: relative;
     background: linear-gradient(135deg, #f4cccc, #e8b4c4);
     border: 1px solid #d9a8a8;
-    padding: 12px 35px;
+    padding: 10px 30px;
     border-radius: 30px;
     font-family: 'Aref Ruqaa', serif;
     cursor: pointer;
     font-weight: 700;
     color: var(--text-color);
-    font-size: 20px;
+    font-size: 18px;
     box-shadow: 0 5px 18px rgba(232, 180, 196, 0.45);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: hidden;
     margin-top: 15px;
+    flex-shrink: 0;
 }
 
 .btn-shine::after {
@@ -230,23 +231,26 @@ body {
     box-shadow: 0 12px 28px rgba(232, 180, 196, 0.65);
 }
 
-/* شبكة الأظرف بتصميم مرتب وغير متداخل */
-.envelopes-grid {
+/* حاوية الأظرف (مع خاصية التمرير العمودي إذا لزم الأمر لتجنب أي تداخل) */
+.envelopes-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 16px;
+    gap: 14px;
     width: 100%;
-    max-width: 780px;
+    max-width: 800px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
 }
 
 .envelope-card {
     background: linear-gradient(135deg, #fff, #fff0f3);
     border: 2px solid #f3c6d3;
-    border-radius: 16px;
-    padding: 16px 12px;
+    border-radius: 14px;
+    padding: 14px 10px;
     width: 30%;
-    min-width: 210px;
+    min-width: 200px;
     text-align: center;
     cursor: pointer;
     box-shadow: 0 8px 25px rgba(232, 150, 170, 0.15);
@@ -254,7 +258,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     position: relative;
     overflow: hidden;
 }
@@ -270,20 +274,20 @@ body {
 }
 
 .env-icon {
-    font-size: 26px;
+    font-size: 24px;
     transition: transform 0.4s ease;
 }
 
 .envelope-card span {
     font-family: 'Aref Ruqaa', serif;
-    font-size: 15px;
+    font-size: 14px;
     color: var(--text-color);
     font-weight: 700;
     line-height: 1.4;
 }
 
 .envelope-card:hover {
-    transform: translateY(-8px) scale(1.04);
+    transform: translateY(-6px) scale(1.04);
     border-color: #ff8fab;
     box-shadow: 0 15px 35px rgba(232, 150, 170, 0.3);
     background: linear-gradient(135deg, #fff, #ffe3e8);
@@ -293,16 +297,20 @@ body {
     transform: scale(1.2) rotate(10deg);
 }
 
-/* بطاقة الرسالة المنبثقة بقراءة مريحة جداً */
+/* بطاقة الرسالة المنبثقة مع تفعيل التمرير الداخلي (Scroll) */
 .message-card {
     background: linear-gradient(135deg, #fff5f7, #ffe6eb);
-    padding: 30px 40px;
-    border-radius: 22px;
+    padding: 25px 35px;
+    border-radius: 20px;
     box-shadow: 0 15px 40px rgba(232, 180, 196, 0.4);
     border: 1px solid #f5d6dc;
+    width: 100%;
     max-width: 680px;
-    max-height: 80vh;
-    overflow-y: auto;
+    height: 75vh;
+    max-height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     animation: messagePop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -311,20 +319,45 @@ body {
     100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-#message-text {
-    font-family: 'Aref Ruqaa', serif;
-    color: #5c3a3a;
-    font-size: 22px;
-    line-height: 2.2;
-    margin-bottom: 20px;
+.message-scroll-area {
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    padding-left: 10px;
     text-align: right;
 }
 
-/* تنسيق التوقيع الداخلي للرسائل بخط الرقعة وبشكل مميز */
+/* تخصيص شكل شريط التمرير (Scrollbar) ليكون ناعماً ومتناسقاً مع التصميم */
+.message-scroll-area::-webkit-scrollbar,
+.envelopes-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.message-scroll-area::-webkit-scrollbar-thumb,
+.envelopes-container::-webkit-scrollbar-thumb {
+    background: #e8b4c4;
+    border-radius: 10px;
+}
+
+.message-scroll-area::-webkit-scrollbar-track,
+.envelopes-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+#message-text {
+    font-family: 'Aref Ruqaa', serif;
+    color: #5c3a3a;
+    font-size: 21px;
+    line-height: 2.2;
+}
+
+/* تنسيق التوقيع الداخلي للرسائل */
 .signature {
     display: block;
     margin-top: 15px;
-    font-size: 20px;
+    font-size: 19px;
     color: #8c5353;
     font-weight: bold;
+    line-height: 2;
 }
