@@ -360,11 +360,11 @@ body {
 /* بطاقة الرسالة المنبثقة مع تفعيل التمرير الداخلي */
 .message-card {
     background: linear-gradient(135deg, #fff5f7, #ffe6eb);
-    padding: 25px 35px;
+    padding: 20px 25px;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(232, 180, 196, 0.4);
     border: 1px solid #f5d6dc;
-    width: 100%;
+    width: 92%;
     max-width: 680px;
     height: 78vh;
     max-height: 480px;
