@@ -17,47 +17,74 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Aref Ruqaa', serif;
     overflow: hidden;
-    animation: backgroundShift 25s linear infinite alternate;
 }
 
-@keyframes backgroundShift {
-    0% { background-position: 0 0, 20px 20px; }
-    100% { background-position: 40px 40px, 60px 60px; }
+/* خلفية قلوب متحركة خيالية */
+.floating-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
 }
 
-/* نافذة المتصفح مع تأثير طفو ودخول سينمائي */
+.floating-hearts span {
+    position: absolute;
+    display: block;
+    font-size: 20px;
+    animation: floatUp 8s linear infinite;
+    bottom: -50px;
+    opacity: 0.6;
+}
+
+.floating-hearts span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.floating-hearts span:nth-child(2) { left: 30%; animation-delay: 2s; font-size: 26px; }
+.floating-hearts span:nth-child(3) { left: 50%; animation-delay: 4s; }
+.floating-hearts span:nth-child(4) { left: 70%; animation-delay: 1s; font-size: 22px; }
+.floating-hearts span:nth-child(5) { left: 85%; animation-delay: 3s; }
+.floating-hearts span:nth-child(6) { left: 20%; animation-delay: 5s; font-size: 28px; }
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.8; }
+    100% { transform: translateY(-105vh) rotate(360deg); opacity: 0; }
+}
+
+/* نافذة المتصفح الفاخرة ذات الظلال والطفو */
 .browser-window {
-    width: 880px;
-    height: 550px;
+    width: 900px;
+    height: 580px;
     background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 30px 60px rgba(92, 58, 58, 0.18), 0 0 0 1px rgba(255,255,255,0.5) inset;
+    border-radius: 16px;
+    box-shadow: 0 35px 70px rgba(92, 58, 58, 0.2), 0 0 0 1px rgba(255,255,255,0.6) inset;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     position: relative;
-    animation: windowFloat 5s ease-in-out infinite alternate, zoomInSmooth 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    z-index: 2;
+    animation: windowFloat 6s ease-in-out infinite alternate, zoomInSmooth 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes windowFloat {
     0% { transform: translateY(0px); }
-    100% { transform: translateY(-8px); }
+    100% { transform: translateY(-6px); }
 }
 
 @keyframes zoomInSmooth {
-    0% { opacity: 0; transform: scale(0.9) translateY(25px); }
+    0% { opacity: 0; transform: scale(0.92) translateY(25px); }
     100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .browser-header {
-    background: #f1f1f1;
+    background: #f4f4f4;
     padding: 12px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e2e2e2;
 }
 
 .dots {
@@ -69,17 +96,16 @@ body {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    transition: transform 0.2s;
 }
-.dot:hover { transform: scale(1.25); }
 .dot-red { background: #ff5f56; }
 .dot-yellow { background: #ffbd2e; }
 .dot-green { background: #27c93f; }
 
 .browser-title {
-    font-size: 13px;
-    color: #888;
+    font-size: 14px;
+    color: #777;
     font-weight: 600;
+    font-family: 'Cairo', sans-serif;
 }
 
 .browser-body {
@@ -96,12 +122,12 @@ body {
 
 /* ورقة الملاحظة الداخلية */
 .paper-note {
-    width: 94%;
-    height: 90%;
+    width: 95%;
+    height: 92%;
     background: #fffcfb;
-    border-radius: 15px 25px 20px 15px;
-    box-shadow: 0 10px 30px rgba(92, 58, 58, 0.08), inset 0 0 40px rgba(245, 230, 230, 0.4);
-    padding: 30px;
+    border-radius: 16px 26px 20px 16px;
+    box-shadow: 0 12px 35px rgba(92, 58, 58, 0.08), inset 0 0 50px rgba(245, 230, 230, 0.5);
+    padding: 35px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -116,7 +142,7 @@ body {
     position: absolute;
     top: 15px;
     right: 25px;
-    font-size: 32px;
+    font-size: 30px;
     animation: flowerSpin 6s ease-in-out infinite alternate;
 }
 
@@ -125,7 +151,7 @@ body {
     100% { transform: rotate(15deg) scale(1.12); }
 }
 
-/* نظام الانتقالات بين الصفحات */
+/* الانتقالات السلسة بين الصفحات */
 .step-content {
     position: absolute;
     width: 100%;
@@ -137,7 +163,7 @@ body {
     padding: 20px;
     opacity: 0;
     visibility: hidden;
-    transform: scale(0.95) translateY(15px);
+    transform: scale(0.96) translateY(12px);
     transition: var(--transition-smooth);
 }
 
@@ -147,38 +173,37 @@ body {
     transform: scale(1) translateY(0);
 }
 
-/* نص الترحيب الجديد */
+/* نص الترحيب بخط الرقعة الفاخر */
 .intro-text {
-    font-family: 'Cairo', sans-serif;
-    color: #5c3a3a;
-    font-size: 20px;
-    line-height: 1.8;
-    font-weight: 600;
-    max-width: 650px;
+    font-family: 'Aref Ruqaa', serif;
+    color: var(--text-color);
+    font-size: 26px;
+    line-height: 2.2;
+    max-width: 700px;
     margin-bottom: 25px;
-    padding: 0 15px;
+    padding: 0 10px;
 }
 
 .section-title {
-    font-family: 'Reenie Beanie', cursive;
+    font-family: 'Aref Ruqaa', serif;
     color: var(--text-color);
-    font-size: 38px;
-    margin-bottom: 12px;
+    font-size: 42px;
+    margin-bottom: 20px;
 }
 
-/* أزرار فخمة ومضيئة */
+/* أزرار متطورة مع لمعة */
 .btn-shine {
     position: relative;
     background: linear-gradient(135deg, #f4cccc, #e8b4c4);
     border: 1px solid #d9a8a8;
-    padding: 10px 32px;
-    border-radius: 25px;
-    font-family: 'Cairo', sans-serif;
+    padding: 12px 35px;
+    border-radius: 30px;
+    font-family: 'Aref Ruqaa', serif;
     cursor: pointer;
     font-weight: 700;
     color: var(--text-color);
-    font-size: 16px;
-    box-shadow: 0 4px 15px rgba(232, 180, 196, 0.4);
+    font-size: 20px;
+    box-shadow: 0 5px 18px rgba(232, 180, 196, 0.45);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: hidden;
 }
@@ -190,7 +215,7 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
     transform: rotate(30deg) translateX(-100%);
     transition: transform 0.7s ease-in-out;
 }
@@ -201,108 +226,80 @@ body {
 
 .btn-shine:hover {
     transform: translateY(-4px) scale(1.06);
-    box-shadow: 0 10px 25px rgba(232, 180, 196, 0.6);
+    box-shadow: 0 12px 28px rgba(232, 180, 196, 0.65);
 }
 
-.btn-shine:active {
-    transform: translateY(1px) scale(0.98);
-}
-
-/* شبكة الأظرف الجديدة بتصميم مطابق للصورة الثانية */
+/* التصميم الاحترافي الجديد للظروف (بدون تداخل نهائياً) */
 .envelopes-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
     width: 100%;
-    max-width: 600px;
+    max-width: 720px;
 }
 
-.envelope {
-    background: #ffccd5;
-    width: 100%;
-    height: 90px;
-    border-radius: 8px;
-    position: relative;
+.envelope-card {
+    background: linear-gradient(135deg, #fff, #fff0f3);
+    border: 2px solid #f3c6d3;
+    border-radius: 16px;
+    padding: 18px 14px;
+    width: 30%;
+    min-width: 190px;
+    text-align: center;
     cursor: pointer;
-    box-shadow: 0 6px 15px rgba(212, 142, 158, 0.25);
+    box-shadow: 0 8px 25px rgba(232, 150, 170, 0.15);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 6px;
-    border: 1px solid #f5b0c0;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
 }
 
-/* غطاء الظرف المثلث */
-.envelope::before {
+.envelope-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 0;
-    height: 0;
-    border-left: 95px solid transparent;
-    border-right: 95px solid transparent;
-    border-top: 55px solid #ffb3c6;
-    transform-origin: top;
-    z-index: 2;
-}
-
-/* طيات الظرف */
-.envelope-flap {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, transparent 50%, #ffb8c9 50%);
-    border-radius: 0 0 8px 8px;
-    z-index: 1;
-    pointer-events: none;
+    height: 5px;
+    background: linear-gradient(90deg, #ff8fab, #ffb3c6);
 }
 
-/* ختم القلب في المنتصف تماماً كما في الصورة الثانية */
-.heart-seal {
-    position: absolute;
-    top: 32px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    font-size: 20px;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-    transition: transform 0.3s ease;
+.env-icon {
+    font-size: 28px;
+    transition: transform 0.4s ease;
 }
 
-.envelope span {
-    font-family: 'Cairo', sans-serif;
+.envelope-card span {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: 16px;
+    color: var(--text-color);
     font-weight: 700;
-    font-size: 11px;
-    color: #5c3a3a;
-    z-index: 4;
-    background: rgba(255, 255, 255, 0.85);
-    padding: 2px 6px;
-    border-radius: 4px;
-    margin-top: 4px;
+    line-height: 1.4;
 }
 
-.envelope:hover {
-    transform: translateY(-6px) scale(1.04);
-    box-shadow: 0 12px 25px rgba(212, 142, 158, 0.4);
+.envelope-card:hover {
+    transform: translateY(-8px) scale(1.04);
+    border-color: #ff8fab;
+    box-shadow: 0 15px 35px rgba(232, 150, 170, 0.3);
+    background: linear-gradient(135deg, #fff, #ffe3e8);
 }
 
-.envelope:hover .heart-seal {
-    transform: translateX(-50%) scale(1.2) rotate(10deg);
+.envelope-card:hover .env-icon {
+    transform: scale(1.2) rotate(10deg);
 }
 
 /* بطاقة الرسالة المنبثقة */
 .message-card {
     background: linear-gradient(135deg, #fff5f7, #ffe6eb);
-    padding: 30px 40px;
-    border-radius: 20px;
-    box-shadow: 0 12px 35px rgba(232, 180, 196, 0.35);
+    padding: 35px 45px;
+    border-radius: 22px;
+    box-shadow: 0 15px 40px rgba(232, 180, 196, 0.4);
     border: 1px solid #f5d6dc;
-    max-width: 500px;
+    max-width: 600px;
     animation: messagePop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -312,10 +309,18 @@ body {
 }
 
 #message-text {
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Aref Ruqaa', serif;
     color: #5c3a3a;
-    font-size: 20px;
-    line-height: 1.8;
-    font-weight: 600;
+    font-size: 24px;
+    line-height: 2.2;
     margin-bottom: 25px;
+}
+
+/* تنسيق التوقيع الداخلي للرسالة */
+.signature {
+    display: block;
+    margin-top: 15px;
+    font-size: 20px;
+    color: #8c5353;
+    font-style: italic;
 }
