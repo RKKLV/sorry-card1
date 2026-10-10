@@ -21,7 +21,7 @@ body {
     overflow: hidden;
 }
 
-/* خلفية قلوب متحركة خيالية */
+/* الخلفية الساحرة بالقلوب المتحركة */
 .floating-hearts {
     position: absolute;
     width: 100%;
@@ -53,13 +53,13 @@ body {
     100% { transform: translateY(-105vh) rotate(360deg); opacity: 0; }
 }
 
-/* نافذة المتصفح الفاخرة ذات الظلال والطفو */
+/* نافذة المتصفح مع طفو خيالي ودخول سينمائي */
 .browser-window {
-    width: 900px;
-    height: 580px;
+    width: 950px;
+    height: 620px;
     background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 35px 70px rgba(92, 58, 58, 0.2), 0 0 0 1px rgba(255,255,255,0.6) inset;
+    border-radius: 18px;
+    box-shadow: 0 40px 80px rgba(92, 58, 58, 0.22), 0 0 0 1px rgba(255,255,255,0.7) inset;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -70,7 +70,7 @@ body {
 
 @keyframes windowFloat {
     0% { transform: translateY(0px); }
-    100% { transform: translateY(-6px); }
+    100% { transform: translateY(-7px); }
 }
 
 @keyframes zoomInSmooth {
@@ -120,14 +120,14 @@ body {
     background-size: 50px 50px;
 }
 
-/* ورقة الملاحظة الداخلية */
+/* ورقة الملاحظة الداخلية بتصميم راقي */
 .paper-note {
-    width: 95%;
-    height: 92%;
+    width: 96%;
+    height: 94%;
     background: #fffcfb;
     border-radius: 16px 26px 20px 16px;
     box-shadow: 0 12px 35px rgba(92, 58, 58, 0.08), inset 0 0 50px rgba(245, 230, 230, 0.5);
-    padding: 35px;
+    padding: 30px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -142,7 +142,7 @@ body {
     position: absolute;
     top: 15px;
     right: 25px;
-    font-size: 30px;
+    font-size: 32px;
     animation: flowerSpin 6s ease-in-out infinite alternate;
 }
 
@@ -151,7 +151,7 @@ body {
     100% { transform: rotate(15deg) scale(1.12); }
 }
 
-/* الانتقالات السلسة بين الصفحات */
+/* الانتقالات السلسة بالحركات الفيزيائية */
 .step-content {
     position: absolute;
     width: 100%;
@@ -173,13 +173,13 @@ body {
     transform: scale(1) translateY(0);
 }
 
-/* نص الترحيب بخط الرقعة الفاخر */
+/* نص الترحيب بخط الرقعة الخرافي */
 .intro-text {
     font-family: 'Aref Ruqaa', serif;
     color: var(--text-color);
     font-size: 26px;
-    line-height: 2.2;
-    max-width: 700px;
+    line-height: 2.3;
+    max-width: 720px;
     margin-bottom: 25px;
     padding: 0 10px;
 }
@@ -187,11 +187,11 @@ body {
 .section-title {
     font-family: 'Aref Ruqaa', serif;
     color: var(--text-color);
-    font-size: 42px;
-    margin-bottom: 20px;
+    font-size: 40px;
+    margin-bottom: 18px;
 }
 
-/* أزرار متطورة مع لمعة */
+/* أزرار فاخرة بمؤثرات لمعة واهتزاز ناعم */
 .btn-shine {
     position: relative;
     background: linear-gradient(135deg, #f4cccc, #e8b4c4);
@@ -206,6 +206,7 @@ body {
     box-shadow: 0 5px 18px rgba(232, 180, 196, 0.45);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     overflow: hidden;
+    margin-top: 15px;
 }
 
 .btn-shine::after {
@@ -229,23 +230,23 @@ body {
     box-shadow: 0 12px 28px rgba(232, 180, 196, 0.65);
 }
 
-/* التصميم الاحترافي الجديد للظروف (بدون تداخل نهائياً) */
+/* شبكة الأظرف بتصميم مرتب وغير متداخل */
 .envelopes-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
     width: 100%;
-    max-width: 720px;
+    max-width: 780px;
 }
 
 .envelope-card {
     background: linear-gradient(135deg, #fff, #fff0f3);
     border: 2px solid #f3c6d3;
     border-radius: 16px;
-    padding: 18px 14px;
+    padding: 16px 12px;
     width: 30%;
-    min-width: 190px;
+    min-width: 210px;
     text-align: center;
     cursor: pointer;
     box-shadow: 0 8px 25px rgba(232, 150, 170, 0.15);
@@ -253,7 +254,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     position: relative;
     overflow: hidden;
 }
@@ -269,13 +270,13 @@ body {
 }
 
 .env-icon {
-    font-size: 28px;
+    font-size: 26px;
     transition: transform 0.4s ease;
 }
 
 .envelope-card span {
     font-family: 'Aref Ruqaa', serif;
-    font-size: 16px;
+    font-size: 15px;
     color: var(--text-color);
     font-weight: 700;
     line-height: 1.4;
@@ -292,14 +293,16 @@ body {
     transform: scale(1.2) rotate(10deg);
 }
 
-/* بطاقة الرسالة المنبثقة */
+/* بطاقة الرسالة المنبثقة بقراءة مريحة جداً */
 .message-card {
     background: linear-gradient(135deg, #fff5f7, #ffe6eb);
-    padding: 35px 45px;
+    padding: 30px 40px;
     border-radius: 22px;
     box-shadow: 0 15px 40px rgba(232, 180, 196, 0.4);
     border: 1px solid #f5d6dc;
-    max-width: 600px;
+    max-width: 680px;
+    max-height: 80vh;
+    overflow-y: auto;
     animation: messagePop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -311,16 +314,17 @@ body {
 #message-text {
     font-family: 'Aref Ruqaa', serif;
     color: #5c3a3a;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 2.2;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    text-align: right;
 }
 
-/* تنسيق التوقيع الداخلي للرسالة */
+/* تنسيق التوقيع الداخلي للرسائل بخط الرقعة وبشكل مميز */
 .signature {
     display: block;
     margin-top: 15px;
     font-size: 20px;
     color: #8c5353;
-    font-style: italic;
+    font-weight: bold;
 }
