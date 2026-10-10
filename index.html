@@ -3,45 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>هدية خاصة</title>
-    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <title>هدية خاصة لك</title>
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="browser-window">
-        <!-- شريط المتصفح -->
+        <!-- شريط المتصفح الفاخر -->
         <div class="browser-header">
-            <div class="dot dot-red"></div>
-            <div class="dot dot-yellow"></div>
-            <div class="dot dot-green"></div>
+            <div class="dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+            </div>
+            <div class="browser-title">Special Gift for You 🤍</div>
         </div>
 
-        <!-- محتوى الصفحة -->
+        <!-- جسم النافذة -->
         <div class="browser-body">
             <div class="paper-note">
-                
+                <!-- عناصر زينة رقيقة متحركة -->
+                <div class="flower-dec">🌸</div>
+
                 <!-- الخطوة الأولى -->
-                <div id="step-1" class="step-content">
-                    <h1>I made something for you</h1>
-                    <button class="btn" onclick="nextStep(2)">what?</button>
+                <div id="step-1" class="step-content active">
+                    <h1 class="fade-in-text">I made something for you</h1>
+                    <button class="btn-shine" onclick="nextStep(2)">what?</button>
                 </div>
 
-                <!-- الخطوة الثانية: الأظرف -->
-                <div id="step-2" class="step-content hidden">
+                <!-- الخطوة الثانية: الأظرف التفاعلية -->
+                <div id="step-2" class="step-content">
+                    <h2 class="section-title">Open When...</h2>
                     <div class="envelopes-grid">
-                        <div class="envelope" onclick="openMessage('اشتقت لك كثيراً، تذكر أنني معك دائماً.')">open when<br><b>you miss me</b></div>
-                        <div class="envelope" onclick="openMessage('لا تقلق، كل شيء سيصبح أفضل قريباً.')">open when<br><b>you're sad</b></div>
-                        <div class="envelope" onclick="openMessage('سعيد لأنك تشعر بالسعادة اليوم!')">open when<br><b>you're happy</b></div>
-                        <div class="envelope" onclick="openMessage('أرسل لك أكبر عناق في العالم!')">open when<br><b>you need a hug</b></div>
-                        <div class="envelope" onclick="openMessage('دعنا نتجاوز هذا الخلاف ونتصافى.')">open when<br><b>we fight</b></div>
+                        <div class="envelope" onclick="openMessage('اشتقت لك كثيراً، تذكر أنني معك دائماً في كل خطوة.')">
+                            <span>you miss me</span>
+                        </div>
+                        <div class="envelope" onclick="openMessage('لا تقلق، كل صعوبة تليها راحة وعوض جميل، ابتسم!')">
+                            <span>you're sad</span>
+                        </div>
+                        <div class="envelope" onclick="openMessage('سعيد جداً لرؤيتك سعيداً، ديمومة الفرح لقلبك!')">
+                            <span>you're happy</span>
+                        </div>
+                        <div class="envelope" onclick="openMessage('أرسل لك أدفأ عناق واحتواء في العالم كله.')">
+                            <span>you need a hug</span>
+                        </div>
+                        <div class="envelope" onclick="openMessage('حتى في أوقات الاختلاف، تبقى أنت الأغلى والأقرب لقلبي.')">
+                            <span>we fight</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- شاشة عرض الرسالة الداخلية -->
-                <div id="step-message" class="step-content hidden">
-                    <p id="message-text" style="font-size: 28px; line-height: 1.6;"></p>
-                    <button class="btn" onclick="backToEnvelopes()">العودة للأظرف</button>
+                <div id="step-message" class="step-content">
+                    <div class="message-card">
+                        <p id="message-text"></p>
+                        <button class="btn-shine" onclick="backToEnvelopes()">العودة للأظرف</button>
+                    </div>
                 </div>
 
             </div>
